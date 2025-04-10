@@ -1,6 +1,9 @@
 import './App.css'
 import EmployeeCard from "./EmployeeCard.tsx";
 import {useState} from "react";
+import express from "express";
+
+const app = express();
 
 const sampleEmployee = {
     name: {
@@ -18,7 +21,7 @@ function App() {
 
     const getEmployee = () => {
         // Send the request
-        fetch("https://randomuser.me/api?nat=en")
+        fetch("https://localhost:3310/api/employees")
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);setEmployees(data.results[0]);
